@@ -14,3 +14,20 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/home', 'HomeController@index');
+
+Route::get('/home/chunk', 'HomeController@chunk');
+Route::get('/home/collapse', 'HomeController@collapse');
+Route::get('/home/combine', 'HomeController@combine');
+Route::get('/home/concat', 'HomeController@concat');
+route::get('/home/contains', 'HomeController@contains');
+route::get('/home/count', 'HomeController@count');
+Route::get('/home/countby', 'HomeController@countby');
+Route::get('/home/crossjoin', 'HomeController@crossjoin');
+Route::get('/home/dd', 'HomeController@dd');
+Route::get('/home/dump', 'HomeController@dump');
+Route::get('/home/duplicates', 'HomeController@duplicates');
+Route::get('/home/each', 'HomeController@each');
+Route::get('/home/unique', 'HomeController@unique');
+Route::get('/home/uniquestrict', 'HomeController@uniquestrict');
