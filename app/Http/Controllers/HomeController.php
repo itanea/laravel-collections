@@ -104,6 +104,13 @@ class HomeController extends BaseController
     }
 
     /**
+     * Demo all() method
+     */
+    public function all() {
+        return view('home.all',['languages' => $this->languages]);
+    }
+
+    /**
      * Demo chunk() method
      */
     public function chunk() {
