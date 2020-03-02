@@ -21,6 +21,7 @@ Route::get('/home/all', 'HomeController@all');
 Route::get('/home/avg', 'HomeController@avg');
 Route::get('/home/chunk', 'HomeController@chunk');
 Route::get('/home/collapse', 'HomeController@collapse');
+Route::get('/home/collect', 'HomeController@collect');
 Route::get('/home/combine', 'HomeController@combine');
 Route::get('/home/concat', 'HomeController@concat');
 route::get('/home/contains', 'HomeController@contains');

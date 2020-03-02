@@ -131,6 +131,12 @@ class HomeController extends BaseController
         return view('home.collapse',['collection' => $this->complexe]);
     }
 
+    /**
+     * Demo collect() method
+     */
+    public function collect() {
+        return view('home.collect');
+    }
 
     /**
      * Demo combine() method
