@@ -38,7 +38,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="https://itanea.fr/apprendre-le-developpement-web/les-collections-laravel/"
-                        target="blank">Article Laravel Collections</a>
+                        target="blank">Article <strong>"Laravel Collections"</strong></a>
                 </li>
             </ul>
         </div>
