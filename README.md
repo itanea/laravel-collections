@@ -5,6 +5,17 @@ The purpose of this mini project is to demonstrate all collections method's avai
 
 ![Les méthodes des Collections Laravel](https://itanea.fr/apprendre-le-developpement-web/wp-content/uploads/2020/02/brave_tm1YP25vG0.png)
 
+
+## How to install this project
+
+1. git clone https://github.com/itanea/laravel-collections.git 
+2. composer install
+3. cd laravel-collections
+4. mv .env.example .env
+5. php artisan key:generate
+
+6. Enjoy !! :D
+
 ## License
 
 This project is licensed under the [MIT license](https://opensource.org/licenses/MIT).
