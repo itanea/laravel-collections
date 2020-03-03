@@ -6,7 +6,7 @@
 <h2>Collections used</h2>
 @php
 echo '<h3>New collection</h3>';
-$level = collect([
+$newcollection = collect([
 0,
 1,
 false,
@@ -18,7 +18,7 @@ true,
 'expert'
 ]
 );
-$level->dump();
+$newcollection->dump();
 @endphp
 
 
@@ -27,17 +27,17 @@ $level->dump();
 <div class="alert alert-success" role="alert">
     Use of duplicates() method in no strict mode
 </div>
-<code>dump($level->duplicates());</code>
+<code>dump($newcollection->duplicates());</code>
 @php
-dump($level->duplicates());
+dump($newcollection->duplicates());
 @endphp
 
 <div class="alert alert-success" role="alert">
     Use of duplicatesStrict() and compare with previous method
 </div>
-<code>dump($level->duplicatesStrict());</code>
+<code>dump($newcollection->duplicatesStrict());</code>
 @php
-dump($level->duplicatesStrict());
+dump($newcollection->duplicatesStrict());
 @endphp
 
 @endsection
