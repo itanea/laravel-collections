@@ -4,7 +4,7 @@
 
 {{--  content  --}}
 
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid text-center">
     <div class="container">
         <h1 class="display-4">Explore Laravel Collections</h1>
         <p class="lead">Below, you can navigate to one of the {{ $datas->count()}} Laravel Collection methods.</p>
