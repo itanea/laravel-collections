@@ -94,11 +94,11 @@
 
         <div class="content">
             <div class="title m-b-md">
-                Laravel Collections Demo
+                Laravel Collections : Démo
             </div>
 
             <div class="links">
-                <a href="/home">See examples</a>
+                <a href="/home">Voir les méthodes</a>
                 <a href="https://itanea.fr/apprendre-le-developpement-web/les-collections-laravel">L'article : Les
                     collections Laravel</a>
             </div>

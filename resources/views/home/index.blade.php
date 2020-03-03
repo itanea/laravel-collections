@@ -6,8 +6,9 @@
 
 <div class="jumbotron jumbotron-fluid text-center">
     <div class="container">
-        <h1 class="display-4">Explore Laravel Collections</h1>
-        <p class="lead">Below, you can navigate to one of the {{ $datas->count()}} Laravel Collection methods.</p>
+        <h1 class="display-4">Explore les Collections Laravel</h1>
+        <p class="lead">Ci-dessous, tu vas pouvoir découvrir une des {{ $datas->count()}} méthodes des collections
+            Laravel. En tout, il y en a 118, le reste arrive vite ;-)</p>
     </div>
 </div>
 @foreach ($datas->chunk(3) as $chunk)
@@ -23,7 +24,7 @@
 
                 echo Str::limit(str_replace($search, "", $data->getDocComment()),80); @endphp
             </p>
-            <a href="/home/{{ $data->name }}" class="btn btn-warning">More about <span
+            <a href="/home/{{ $data->name }}" class="btn btn-warning">En savoir plus sur <span
                     class="badge badge-dark"><strong>{{ $data->name }}</strong></span></a>
         </div>
     </div>
