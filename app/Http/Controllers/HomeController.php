@@ -163,9 +163,6 @@ class HomeController extends BaseController
             'numbers' => $this->numbers,
             'complexe' => $this->complexe
         ]);
-
-        // $concat = $this->languages->concat($this->level)->concat($this->numbers)->concat($this->complexe);
-        // dd($concat);
     }
 
     /**
@@ -200,8 +197,6 @@ class HomeController extends BaseController
      */
     public function countby() {
         return view('home.countby',['level' => $this->level]);
-        echo "<h1>Count by example</h1>";
-        dump($this->level->countBy());
     }
 
 
@@ -210,9 +205,7 @@ class HomeController extends BaseController
      */
     public function crossjoin()
     {
-        $cross = $this->languages->crossJoin($this->level->unique());
-        echo "<h1>crossJoin by example</h1>";
-        dump($cross);
+        return view('home.crossJoin', ['languages' => $this->languages, 'level' => $this->level]);
     }
 
     /**
@@ -220,9 +213,7 @@ class HomeController extends BaseController
      */
     public function dd()
     {
-        echo "<h1>dd by example</h1>";
-        $this->languages->dd();
-        echo "This never appears !";
+        return view('home.dd', ['languages' => $this->languages]);
     }
 
     /**
@@ -230,9 +221,7 @@ class HomeController extends BaseController
      */
     public function dump()
     {
-        echo "<h1>dump by example</h1>";
-        $this->languages->dump();
-        echo "This appears after dump because dump don't stop the party !";
+        return view('home.dump', ['languages' => $this->languages]);
     }
 
     /**
@@ -272,23 +261,7 @@ class HomeController extends BaseController
      */
     public function unique()
     {
-        echo "<h1>unique by example</h1>";
-        echo "<h2>With a simple collection</h2>";
-        $this->level->unique()->dump();
-
-        echo "<h2>With a nested collection</h2>";
-        $this->nested->unique('level')->dump();
-
-        echo "<h2>With a nested collection by price</h2>";
-        $this->nested->unique('price')->dump();
-
-        echo "<h2>With a nested collection and your own callback</h2>";
-        $this->nested->unique(function ($item) {
-            return $item['level'].$item['price'];
-        })->dump();
-
-
-
+        return view('home.unique', ['level' => $this->level, 'nested' => $this->nested]);
     }
 
     /**
@@ -296,17 +269,7 @@ class HomeController extends BaseController
      */
     public function uniqueStrict()
     {
-        echo "<h1>uniqueStrict by example</h1>";
-
-        echo "<h2>Difference between unique() and uniqueStrict()</h2>";
-        $strictCollection = collect([
-            1,3,1,12,3,12,'1','12','13'
-        ]);
-        echo "<h3>Used collection</h3>";
-        $strictCollection->dump();
-        echo "<h3>With unique() only :</h3>";
-        $strictCollection->unique()->dump();
-        echo "<h3>With uniqueStrict() :</h3>";
-        $strictCollection->uniqueStrict()->dump();
+        $strictCollection = collect([1,3,1,12,3,12,'1','12','13']);
+        return view('home.uniqueStrict', ['strictCollection' => $strictCollection]);
     }
 }

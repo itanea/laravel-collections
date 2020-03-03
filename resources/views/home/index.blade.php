@@ -19,13 +19,11 @@
             <h5 class="card-title">Method {{ $data->name }}</h5>
             <p class="card-text">If you want know more about method {{ $data->name }}, click on the button below
             </p>
-            <a href="/home/{{ $data->name }}" class="btn btn-warning">More about {{ $data->name }}</a>
+            <a href="/home/{{ $data->name }}" class="btn btn-warning">More about <span
+                    class="badge badge-dark"><strong>{{ $data->name }}</strong></span></a>
         </div>
     </div>
-
-
-    {{--  <div class="col-xs-4">{{ $data->name }}</div> --}}
-@endforeach
+    @endforeach
 </div>
 @endforeach
 @endsection
