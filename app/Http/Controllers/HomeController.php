@@ -244,6 +244,14 @@ class HomeController extends BaseController
     }
 
     /**
+     * Demo duplicatesStrict() method
+     */
+    public function duplicatesStrict()
+    {
+        return view('home.duplicatesStrict', ['level' => $this->level, 'nested' => $this->nested]);
+    }
+
+    /**
      * Demo each() method
      */
     public function each()
