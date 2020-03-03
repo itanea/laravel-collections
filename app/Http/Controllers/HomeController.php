@@ -111,10 +111,17 @@ class HomeController extends BaseController
     }
 
     /**
-     * Demo all() method
+     * Demo avg() method
      */
     public function avg() {
         return view('home.avg',['numbers' => $this->numbers]);
+    }
+
+    /**
+     * Demo average() method
+     */
+    public function average() {
+        return view('home.average',['numbers' => $this->numbers]);
     }
 
     /**

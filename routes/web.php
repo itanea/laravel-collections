@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::get('/home', 'HomeController@index');
 
 Route::get('/home/all', 'HomeController@all');
+Route::get('/home/average', 'HomeController@average');
 Route::get('/home/avg', 'HomeController@avg');
 Route::get('/home/chunk', 'HomeController@chunk');
 Route::get('/home/collapse', 'HomeController@collapse');
