@@ -35,6 +35,7 @@ Route::get('/home/dump', 'HomeController@dump');
 Route::get('/home/duplicates', 'HomeController@duplicates');
 Route::get('/home/duplicatesStrict', 'HomeController@duplicatesStrict');
 Route::get('/home/each', 'HomeController@each');
+Route::get('/home/eachSpread', 'HomeController@eachSpread');
 Route::get('/home/reject', 'HomeController@reject');
 Route::get('/home/unique', 'HomeController@unique');
 Route::get('/home/uniqueStrict', 'HomeController@uniquestrict');

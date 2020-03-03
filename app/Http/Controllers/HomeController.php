@@ -87,6 +87,13 @@ class HomeController extends BaseController
             ['name' => 'Banana Split', 'level' => 'Chef', 'price' => 'Cher', 'type' => 'Dessert'],
             ['name' => 'Coupe Colonel', 'level' => 'Facile', 'price' => 'Economique', 'type' => 'Dessert'],
         ]);
+
+        // Data set #7 : nested improved
+        $this->nestedImproved = collect([
+            ['Spaghetti à la carbonara', 'Moyen', 15.75, 5.5],
+            ['Loup entier grillé', 'Chef', 30, 7],
+            ['Coupe Colonel', 'Facile', 7.5, 12.5],
+        ]);
     }
 
 
@@ -246,6 +253,14 @@ class HomeController extends BaseController
     public function each()
     {
         return view('home.each', ['languages' => $this->languages]);
+    }
+
+    /**
+     * Demo eachSpread() method
+     */
+    public function eachSpread()
+    {
+        return view('home.eachSpread', ['nestedImproved' => $this->nestedImproved]);
     }
 
     /**
