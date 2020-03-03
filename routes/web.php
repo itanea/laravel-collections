@@ -26,6 +26,7 @@ Route::get('/home/collect', 'HomeController@collect');
 Route::get('/home/combine', 'HomeController@combine');
 Route::get('/home/concat', 'HomeController@concat');
 route::get('/home/contains', 'HomeController@contains');
+route::get('/home/containsStrict', 'HomeController@containsStrict');
 route::get('/home/count', 'HomeController@count');
 Route::get('/home/countby', 'HomeController@countby');
 Route::get('/home/crossjoin', 'HomeController@crossjoin');

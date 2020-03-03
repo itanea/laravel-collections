@@ -180,6 +180,15 @@ class HomeController extends BaseController
         ]);
     }
 
+    /**
+     * Demo containsStrict() method
+     */
+    public function containsStrict() {
+        return view('home.containsStrict', [
+            'oneorzero' => $this->oneorzero
+        ]);
+    }
+
     public function count()
     {
         return view('home.count',['languages' => $this->languages]);
