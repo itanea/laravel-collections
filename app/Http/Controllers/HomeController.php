@@ -260,6 +260,14 @@ class HomeController extends BaseController
     }
 
     /**
+     * Demo reject() method
+     */
+    public function reject()
+    {
+        return view('home.reject', ['numbers' => $this->numbers]);
+    }
+
+    /**
      * Demo unique() method
      */
     public function unique()
