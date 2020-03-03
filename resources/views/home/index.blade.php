@@ -17,7 +17,11 @@
         <img src="/images/laravel-logolockup-rgb-red_700x191.png" class="card-img-top my-2" alt="Laravel">
         <div class="card-body bg-danger text-white">
             <h5 class="card-title">Method {{ $data->name }}</h5>
-            <p class="card-text">If you want know more about method {{ $data->name }}, click on the button below
+            <p class="card-text">@php
+                $search = ['/**', '*', '/'];
+                // substr($chaine, 0, 45).'...';
+
+                echo Str::limit(str_replace($search, "", $data->getDocComment()),80); @endphp
             </p>
             <a href="/home/{{ $data->name }}" class="btn btn-warning">More about <span
                     class="badge badge-dark"><strong>{{ $data->name }}</strong></span></a>
