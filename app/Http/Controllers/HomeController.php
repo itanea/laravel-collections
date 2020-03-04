@@ -266,6 +266,14 @@ class HomeController extends BaseController
     }
 
     /**
+     * Demo every() method
+     */
+    public function every()
+    {
+        return view('home.every', ['languages' => $this->languages, 'complexe' => $this->complexe]);
+    }
+
+    /**
      * Tu as besoin de supprimer quelques éléments de ta collection en fonction de certains critères ? Reject est la méthode qui va pouvoir t'y aider.
      */
     public function reject()
