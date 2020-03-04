@@ -16,7 +16,7 @@ $level->dump();
 
 echo "<h2>Concat collections</h2>";
 @endphp
-<code>dump($languages->concat($level)->concat($numbers)->concat($complexe));</code>
+@component('sourcecode')dump($languages->concat($level)->concat($numbers)->concat($complexe));@endcomponent
 @php
 dump($languages->concat($level)->concat($numbers)->concat($complexe));
 @endphp

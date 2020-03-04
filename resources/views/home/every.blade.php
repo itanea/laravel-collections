@@ -18,13 +18,15 @@ $complexe->dump();
 <div class="alert alert-success" role="alert">
     Test on languages collection (with only strings)
 </div>
-<code>
-    $testItemsAreString = $languages->every(function ($value, $key) {
-        return is_string($value);
-    });
+@component('sourcecode')
+$testItemsAreString = $languages->every(function ($value, $key) {
+    return is_string($value);
+});
 
-    dump($testItemsAreString);
-</code>
+dump($testItemsAreString);
+
+@endcomponent
+
 @php
 $testItemsAreString = $languages->every(function ($value, $key) {
 return is_string($value);
@@ -36,13 +38,15 @@ dump($testItemsAreString);
 <div class="alert alert-success" role="alert">
     Test on languages complexe (with strings and other types)
 </div>
-<code>
-    $testItemsAreString = $complexe->every(function ($value, $key) {
-        return is_string($value);
-    });
 
-    dump($testItemsAreString);
-</code>
+@component('sourcecode')
+$testItemsAreString = $complexe->every(function ($value, $key) {
+    return is_string($value);
+});
+
+dump($testItemsAreString);
+@endcomponent
+
 @php
 $testItemsAreString = $complexe->every(function ($value, $key) {
 return is_string($value);

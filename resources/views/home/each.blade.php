@@ -10,9 +10,9 @@ $languages->dump();
 
 echo "<h2>each() example : capitalize items</h2>";
 @endphp
-<code>$languages->each(function($item, $key) {
-    echo strtoupper($item) . '<br />';
-    });</code>
+@component('sourcecode')$languages->each(function($item, $key) {
+echo strtoupper($item) . '<br />';
+});@endcomponent
 <p>
     @php
     $languages->each(function($item, $key) {
@@ -24,13 +24,13 @@ echo "<h2>each() example : capitalize items</h2>";
 @php
 echo "<h2>each() example : capitalize items and stop when java detected</h2>";
 @endphp
-<code>$languages->each(function($item, $key) {
-    if ($item == 'java')
-    {
-        return false;
-    }
-    echo strtoupper($item) . '<br />';
-    });</code>
+@component('sourcecode')$languages->each(function($item, $key) {
+if ($item == 'java')
+{
+return false;
+}
+echo strtoupper($item) . '<br />';
+});@endcomponent
 <p>
     @php
     $languages->each(function($item, $key) {

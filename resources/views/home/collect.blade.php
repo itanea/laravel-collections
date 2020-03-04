@@ -5,8 +5,8 @@
 <h1>Method collect() by example</h1>
 
 <h3>Demo of collect() method</h3>
-<code>
-    <pre>
+@component('sourcecode')
+<pre>
         $languages = collect([
                 'php',
                 'python',
@@ -19,7 +19,7 @@
             ]);
         dump($languages);
     </pre>
-</code>
+@endcomponent
 @php
 $languages = collect([
 'php',

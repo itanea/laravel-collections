@@ -12,7 +12,7 @@ $level->dump();
 
 
 <h3>Demo of countBy() method on collection 'level'</h3>
-<code>dump($level->countBy());</code>
+@component('sourcecode')dump($level->countBy());@endcomponent
 @php
 dump($level->countBy());
 @endphp

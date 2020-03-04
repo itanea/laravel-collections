@@ -15,9 +15,6 @@ $numbers->dump();
 <div class="alert alert-success" role="alert">
     This method aims to reject some item from a collection by using an anonym function
 </div>
-<code>dump($numbers->reject(function ($number) {
-    return $number < 0;
- }));</code>
-@php
-dump($numbers->reject(function ($number) {
-return $number < 0; })); @endphp @endsection
+@component('sourcecode')dump($numbers->reject(function ($number) {
+return $number < 0; }));@endcomponent @php dump($numbers->reject(function ($number) {
+    return $number < 0; })); @endphp @endsection

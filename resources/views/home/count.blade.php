@@ -12,7 +12,7 @@ $languages->dump();
 
 
 <h1>Count items of collection</h1>
-<code>dump($languages->count());</code>
+@component('sourcecode')dump($languages->count());@endcomponent
 @php
 dump($languages->count());
 @endphp

@@ -18,54 +18,54 @@ echo "<h2>Test contains() method on collections</h2>";
 @endphp
 
 <h1>C language search</h1>
-<code>dump($languages->contains('C'));</code>
+@component('sourcecode')dump($languages->contains('C'));@endcomponent
 @php
 dump($languages->contains('C'));
 @endphp
 
 <h1>C# language search</h1>
-<code>dump($languages->contains('C#'));</code>
+@component('sourcecode')dump($languages->contains('C#'));@endcomponent
 @php
 dump($languages->contains('C#'));
 @endphp
 
 <h1>c# language search</h1>
-<code>dump($languages->contains('c#'));</code>
+@component('sourcecode')dump($languages->contains('c#'));@endcomponent
 @php
 dump($languages->contains('c#'));
 @endphp
 
 <h1>Key search 'ref','XZ42'</h1>
-<code>dump($complexe->contains('ref', 'XZ42'));</code>
+@component('sourcecode')dump($complexe->contains('ref', 'XZ42'));@endcomponent
 @php
 dump($complexe->contains('ref', 'XZ42'));
 @endphp
 
 <h1>Key search 'price',''</h1>
-<code>dump($complexe->contains('price', ''));</code>
+@component('sourcecode')dump($complexe->contains('price', ''));@endcomponent
 @php
 dump($complexe->contains('price', ''));
 @endphp
 
 <h1>Contains with callback method</h1>
-<code>dump(numbers->contains(function ($value, $key){
-    return ($value < "-8" or $value> "400");
-        });
-    );
-</code>
-@php
-dump($numbers->contains(
-function ($value, $key)
-{
+@component('sourcecode')dump(numbers->contains(function ($value, $key){
 return ($value < "-8" or $value> "400");
-    })
+    });
     );
-    @endphp
-
-    <h1>Contains strict - example</h1>
-    <code>dump($oneorzero->containsStrict(0));</code>
+    @endcomponent
     @php
-    dump($oneorzero->containsStrict(0));
-    @endphp
+    dump($numbers->contains(
+    function ($value, $key)
+    {
+    return ($value < "-8" or $value> "400");
+        })
+        );
+        @endphp
 
-    @endsection
+        <h1>Contains strict - example</h1>
+        @component('sourcecode')dump($oneorzero->containsStrict(0));@endcomponent
+        @php
+        dump($oneorzero->containsStrict(0));
+        @endphp
+
+        @endsection

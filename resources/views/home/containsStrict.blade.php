@@ -14,12 +14,12 @@ $oneorzero->dump();
 </div>
 
 <h3>Demo of containsStrict() method on collection 'oneorzero'</h3>
-<code>dump($oneorzero->containsStrict(false));</code>
+@component('sourcecode')dump($oneorzero->containsStrict(false));@endcomponent
 @php
 dump($oneorzero->containsStrict(false));
 @endphp
 
-<code>dump($oneorzero->containsStrict(0));</code>
+@component('sourcecode')dump($oneorzero->containsStrict(0));@endcomponent
 @php
 dump($oneorzero->containsStrict(0));
 @endphp

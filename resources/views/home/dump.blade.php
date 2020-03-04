@@ -15,8 +15,8 @@ $languages->dump();
 <div class="alert alert-success" role="alert">
     This method dumps a collection content and doesn't stop script execution
 </div>
-<code>$languages->dump();
-    echo "This appears after dump because dump don't stop the party ";</code>
+@component('sourcecode')$languages->dump();
+echo "This appears after dump because dump don't stop the party ";@endcomponent
 @php
 $languages->dump();
 echo "This appears after dump because dump don't stop the party ";;

@@ -18,27 +18,27 @@ $nested->dump();
     This method aims all unique item from a collection.
 </div>
 <h4>With a simple collection (level)</h4>
-<code>dump($level->unique());</code>
+@component('sourcecode')dump($level->unique());@endcomponent
 @php
 dump($level->unique());
 @endphp
 
 <h4>With a nested collection (nested)</h4>
-<code>dump($nested->unique('level'));</code>
+@component('sourcecode')dump($nested->unique('level'));@endcomponent
 @php
 dump($nested->unique('level'));
 @endphp
 
 <h4>With a nested collection by price (nested)</h4>
-<code>dump($nested->unique('price'));</code>
+@component('sourcecode')dump($nested->unique('price'));@endcomponent
 @php
 dump($nested->unique('price'));
 @endphp
 
 <h4>With a nested collection and your own callback (nested)</h4>
-<code>$nested->unique(function ($item) {
-    return $item['level'].$item['price'];
-})->dump();</code>
+@component('sourcecode')$nested->unique(function ($item) {
+return $item['level'].$item['price'];
+})->dump();@endcomponent
 @php
 $nested->unique(function ($item) {
 return $item['level'].$item['price'];

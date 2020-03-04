@@ -15,7 +15,7 @@ $strictCollection->dump();
 <div class="alert alert-success" role="alert">
     With unique() method only :
 </div>
-<code>$strictCollection->unique()->dump();</code>
+@component('sourcecode')$strictCollection->unique()->dump();@endcomponent
 @php
 $strictCollection->unique()->dump();
 @endphp
@@ -23,7 +23,7 @@ $strictCollection->unique()->dump();
 <div class="alert alert-success" role="alert">
     With unique() method only :
 </div>
-<code>$strictCollection->uniqueStrict()->dump();</code>
+@component('sourcecode')$strictCollection->uniqueStrict()->dump();@endcomponent
 @php
 $strictCollection->uniqueStrict()->dump();
 @endphp

@@ -12,7 +12,11 @@ $languages->dump();
 
 
 <h3>Demo of all() method on collection 'languages'</h3>
-<code>dump($languages->all());</code>
+
+@component('sourcecode')
+dump($languages->all());
+@endcomponent
+
 @php
 dump($languages->all());
 @endphp
