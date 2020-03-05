@@ -2,7 +2,8 @@
 
 @section('content')
 
-<h1>Method last() example</h1>
+
+<h1>Example pour la méthode last() </h1>
 <h2>Collection used</h2>
 @php
 echo '<h3>Languages collection</h3>';
@@ -54,5 +55,26 @@ return is_string($value);
 
 dump($testItemsAreString);
 @endphp
+
+<div class="alert alert-success" role="alert">
+    Test on languages complexe (with strings and other types). Return null because none elements are string
+</div>
+
+@component('sourcecode')
+$testItemsAreArray = $complexe->last(function ($value, $key) {
+return is_array($value);
+});
+
+dump($testItemsAreString);
+@endcomponent
+
+@php
+$testItemsAreArray = $complexe->last(function ($value, $key) {
+return (is_array($value));
+});
+
+dump($testItemsAreArray);
+@endphp
+
 
 @endsection
