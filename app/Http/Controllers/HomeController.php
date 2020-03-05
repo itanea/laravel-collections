@@ -266,11 +266,19 @@ class HomeController extends BaseController
     }
 
     /**
-     * Demo every() method
+     * Encore une fonction simple que tu vas adorer. Elle te permet de passer dans une moulinette tous les éléments de ta collection et de vérifier si TOUS (j'ai bien TOUS) les éléments remplissent la condition d'une fonction anonyme que tu leur aura gentillement soumis.
      */
     public function every()
     {
         return view('home.every', ['languages' => $this->languages, 'complexe' => $this->complexe]);
+    }
+
+    /**
+     * La méthode last() va t'apporter un fonctionnement proche de la méthode every(). A la différence que cette méthode va te retourner via la fonction de callback le dernier élément qui a réussit le test inclut dans la fonction de callback.
+     */
+    public function last()
+    {
+        return view('home.last', ['languages' => $this->languages, 'complexe' => $this->complexe]);
     }
 
     /**
