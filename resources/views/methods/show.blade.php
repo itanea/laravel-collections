@@ -40,7 +40,6 @@
 <h5>Résultat</h5>
 @php
 eval($source->comment);
-
 @endphp
 
 

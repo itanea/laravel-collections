@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 
 use App\Method;
+use App\Source;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\Method as MethodRequest;
-use App\Source;
 
 class MethodController extends Controller
 {
@@ -54,18 +55,21 @@ class MethodController extends Controller
      */
     public function store(MethodRequest $request)
     {
+
+        // Automatically determine slug from method name
+        $request['slug'] = Str::slug($request->input('name'));
+
+
         // In no collection selected, send all data to model
         if(empty($request->input('collections')))
         {
             $methodId = Method::create($request->all());
-            dump($methodId->id);
         }
 
         // if one or more collections selected, we need to transform it
         // in string with comma separator
         else
         {
-            dump($request->input('collections'));
             $collections = $request->input('collections');
             $collections = implode(',', $collections);
 
@@ -76,18 +80,21 @@ class MethodController extends Controller
             $methodId = Method::create($input);
         }
 
-        if(!empty($request->input('exemple-1')))
+        if(!is_null($request->input('exemple-1')))
         {
+            dump('Source 1 enter');
             $source1 = new Source();
             $source1->method_id = $methodId->id;
             $source1->name = $request->input('exemple-name-1');
-            $source1->comment = $request->input('exemple-1');
+            $source1->comment = $this->getLanguagesSource() . PHP_EOL . $request->input('exemple-1');
             $source1->order = 1;
             $source1->save();
         }
 
-        if(!empty($request->input('exemple-2')))
+        dump(!is_null($request->input('exemple-2')));
+        if(!is_null($request->input('exemple-2')))
         {
+            dump('Source 2 enter');
             $source2 = new Source();
             $source2->method_id = $methodId->id;
             $source2->name = $request->input('exemple-name-2');
@@ -96,7 +103,7 @@ class MethodController extends Controller
             $source2->save();
         }
 
-        if(!empty($request->input('exemple-3')))
+        if(!is_null($request->input('exemple-3')))
         {
             $source3 = new Source();
             $source3->method_id = $methodId->id;
@@ -106,7 +113,7 @@ class MethodController extends Controller
             $source3->save();
         }
 
-        if(!empty($request->input('exemple-4')))
+        if(!is_null($request->input('exemple-4')))
         {
             $source1 = new Source();
             $source1->method_id = $methodId->id;
@@ -116,7 +123,7 @@ class MethodController extends Controller
             $source1->save();
         }
 
-        if(!empty($request->input('exemple-5')))
+        if(!is_null($request->input('exemple-5')))
         {
             $source2 = new Source();
             $source2->method_id = $methodId->id;
@@ -126,7 +133,7 @@ class MethodController extends Controller
             $source2->save();
         }
 
-        if(!empty($request->input('exemple-6')))
+        if(!is_null($request->input('exemple-6')))
         {
             $source3 = new Source();
             $source3->method_id = $methodId->id;
@@ -136,7 +143,7 @@ class MethodController extends Controller
             $source3->save();
         }
 
-        if(!empty($request->input('exemple-1')))
+        if(!is_null($request->input('exemple-7')))
         {
             $source1 = new Source();
             $source1->method_id = $methodId->id;
@@ -146,7 +153,7 @@ class MethodController extends Controller
             $source1->save();
         }
 
-        if(!empty($request->input('exemple-8')))
+        if(!is_null($request->input('exemple-8')))
         {
             $source2 = new Source();
             $source2->method_id = $methodId->id;
@@ -156,7 +163,7 @@ class MethodController extends Controller
             $source2->save();
         }
 
-        if(!empty($request->input('exemple-9')))
+        if(!is_null($request->input('exemple-9')))
         {
             $source3 = new Source();
             $source3->method_id = $methodId->id;
@@ -212,5 +219,19 @@ class MethodController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    private function getLanguagesSource ()
+    {
+        return '$languages = collect([
+            "php",
+            "python",
+            "javascript",
+            "go",
+            "c#",
+            "java",
+            "cobol",
+            "basic"
+            ]);';
     }
 }

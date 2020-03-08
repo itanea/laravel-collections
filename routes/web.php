@@ -46,4 +46,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('admin/methods', 'MethodController');
+Route::resource('admin/methods', 'MethodController')->except([
+    'show'
+]);
+
+Route::get('admin/methods/{method:slug}', 'MethodController@show')->name('methods.show');
+Route::get('/method/{method:slug}', 'MethodController@show')->name('methods.show');
