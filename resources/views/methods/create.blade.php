@@ -42,7 +42,7 @@
                         <option value="languages">Languages</option>
                         <option value="level">Level</option>
                         <option value="nested">Nested</option>
-                        <option value"numbers">Numbers</option>
+                        <option value="numbers">Numbers</option>
                         <option value="oneorzero">One or Zero</option>
                     </select>
                 </div>
