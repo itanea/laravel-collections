@@ -14,14 +14,14 @@ $numbers->dump();
 </div>
 
 <h3>Demo of Average() method on collection 'numbers'</h3>
-@component('sourcecode')dump($numbers->average());@endcomponent
+@component('components/sourcecode')dump($numbers->average());@endcomponent
 @php
 dump($numbers->average());
 @endphp
 
 
 <h3>Demo of average() method on collection 'numbers' excluding negative values</h3>
-@component('sourcecode')dump($numbers->reject(function ($number) {
+@component('components/sourcecode')dump($numbers->reject(function ($number) {
 return $number < 0; }) ->average());@endcomponent
     @php
     dump($numbers->reject(function ($number) {

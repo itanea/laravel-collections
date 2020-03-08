@@ -41,3 +41,9 @@ Route::get('/home/last', 'HomeController@last');
 Route::get('/home/reject', 'HomeController@reject');
 Route::get('/home/unique', 'HomeController@unique');
 Route::get('/home/uniqueStrict', 'HomeController@uniquestrict');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('admin/methods', 'MethodController');

@@ -10,7 +10,7 @@ $collection->dump();
 
 echo "<h2>COLLAPSED</h2>";
 @endphp
-@component('sourcecode')dump($collection->collapse());@endcomponent
+@component('components/sourcecode')dump($collection->collapse());@endcomponent
 @php
 dump($collection->collapse());
 @endphp

@@ -13,7 +13,7 @@ $collection['level']->dump();
 
 echo "<h2>COMBINED</h2>";
 @endphp
-@component('sourcecode')dump($collection['languages']->combine($collection['level']));@endcomponent
+@component('components/sourcecode')dump($collection['languages']->combine($collection['level']));@endcomponent
 @php
 dump($collection['languages']->combine($collection['level']));
 @endphp

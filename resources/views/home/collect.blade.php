@@ -5,7 +5,7 @@
 <h1>Method collect() by example</h1>
 
 <h3>Demo of collect() method</h3>
-@component('sourcecode')
+@component('components/sourcecode')
 <pre>
         $languages = collect([
                 'php',

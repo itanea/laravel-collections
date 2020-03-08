@@ -15,7 +15,7 @@ $languages->dump();
 <div class="alert alert-success" role="alert">
     This method dumps a collection content and stops script execution
 </div>
-@component('sourcecode')$languages->dd();
+@component('components/sourcecode')$languages->dd();
 echo "This never appears !";@endcomponent
 @php
 $languages->dump();

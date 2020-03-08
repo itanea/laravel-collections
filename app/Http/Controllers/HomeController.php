@@ -26,8 +26,10 @@ class HomeController extends BaseController
 
 
     public function __construct() {
+        $this->middleware('auth');
+
         // Data set #1 : programming languages
-        $this->languages = $languages = collect([
+        $this->languages = collect([
             'php',
             'python',
             'javascript',
@@ -120,7 +122,7 @@ class HomeController extends BaseController
      * average() est un alias d'avg() ou c'est l'inverse, ou c'est vice et versa. Bref, c'est la même chose. Tu ne me cherches pas toi t'as compris ?
      */
     public function avg() {
-        return view('home.avg',['numbers' => $this->numbers]);
+        return view('home.avg',['numbers' => $this->numbers, 'numbersName' => 'numbers']);
     }
 
     /**

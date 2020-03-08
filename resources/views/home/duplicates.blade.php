@@ -12,13 +12,13 @@ $nested->dump();
 
 echo "<h2>DUPLICATED</h2>";
 @endphp
-@component('sourcecode')dump($level->duplicates());@endcomponent
+@component('components/sourcecode')dump($level->duplicates());@endcomponent
 @php
 dump($level->duplicates());
 @endphp
 
 <h2>DUPLICATED with array of objects</h2>
-@component('sourcecode')dump($nested->duplicates('level'));@endcomponent
+@component('components/sourcecode')dump($nested->duplicates('level'));@endcomponent
 @php
 dump($nested->duplicates('level'));
 @endphp

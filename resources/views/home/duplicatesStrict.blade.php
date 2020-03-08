@@ -27,7 +27,7 @@ $newcollection->dump();
 <div class="alert alert-success" role="alert">
     Use of duplicates() method in no strict mode
 </div>
-@component('sourcecode')dump($newcollection->duplicates());@endcomponent
+@component('components/sourcecode')dump($newcollection->duplicates());@endcomponent
 @php
 dump($newcollection->duplicates());
 @endphp
@@ -35,7 +35,7 @@ dump($newcollection->duplicates());
 <div class="alert alert-success" role="alert">
     Use of duplicatesStrict() and compare with previous method
 </div>
-@component('sourcecode')dump($newcollection->duplicatesStrict());@endcomponent
+@component('components/sourcecode')dump($newcollection->duplicatesStrict());@endcomponent
 @php
 dump($newcollection->duplicatesStrict());
 @endphp

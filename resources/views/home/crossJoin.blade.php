@@ -17,7 +17,7 @@ $level->dump();
 <div class="alert alert-success" role="alert">
     This method aims to produce a Cartesian product with all possible permutations between collections provided
 </div>
-@component('sourcecode')dump($languages->crossJoin($level->unique()));@endcomponent
+@component('components/sourcecode')dump($languages->crossJoin($level->unique()));@endcomponent
 @php
 dump($languages->crossJoin($level->unique()));
 @endphp

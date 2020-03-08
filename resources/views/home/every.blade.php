@@ -18,9 +18,9 @@ $complexe->dump();
 <div class="alert alert-success" role="alert">
     Test on languages collection (with only strings)
 </div>
-@component('sourcecode')
+@component('components/sourcecode')
 $testItemsAreString = $languages->every(function ($value, $key) {
-    return is_string($value);
+return is_string($value);
 });
 
 dump($testItemsAreString);
@@ -39,9 +39,9 @@ dump($testItemsAreString);
     Test on languages complexe (with strings and other types)
 </div>
 
-@component('sourcecode')
+@component('components/sourcecode')
 $testItemsAreString = $complexe->every(function ($value, $key) {
-    return is_string($value);
+return is_string($value);
 });
 
 dump($testItemsAreString);

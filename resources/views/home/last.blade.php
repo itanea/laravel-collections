@@ -19,7 +19,7 @@ $complexe->dump();
 <div class="alert alert-success" role="alert">
     Test on languages collection (with only strings)
 </div>
-@component('sourcecode')
+@component('components/sourcecode')
 $testItemsAreString = $languages->last(function ($value, $key) {
 return is_string($value);
 });
@@ -40,7 +40,7 @@ dump($testItemsAreString);
     Test on languages complexe (with strings and other types). Return null because none elements are string
 </div>
 
-@component('sourcecode')
+@component('components/sourcecode')
 $testItemsAreString = $complexe->last(function ($value, $key) {
 return is_string($value);
 });
@@ -60,7 +60,7 @@ dump($testItemsAreString);
     Test on languages complexe (with strings and other types). Return null because none elements are string
 </div>
 
-@component('sourcecode')
+@component('components/sourcecode')
 $testItemsAreArray = $complexe->last(function ($value, $key) {
 return is_array($value);
 });

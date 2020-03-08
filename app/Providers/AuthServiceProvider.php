@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Auth\Access\Response;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -25,6 +26,11 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::define('view-methods', function ($user) {
+            $message = 'Vous devez être administrateur pour accéder à cette page.';
+            return $user->isAdmin()
+                        ? Response::allow()
+                        : Response::deny($message);
+        });
     }
 }

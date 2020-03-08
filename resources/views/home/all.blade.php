@@ -13,7 +13,7 @@ $languages->dump();
 
 <h3>Demo of all() method on collection 'languages'</h3>
 
-@component('sourcecode')
+@component('components/sourcecode')
 dump($languages->all());
 @endcomponent
 

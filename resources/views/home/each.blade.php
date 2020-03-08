@@ -10,7 +10,7 @@ $languages->dump();
 
 echo "<h2>each() example : capitalize items</h2>";
 @endphp
-@component('sourcecode')$languages->each(function($item, $key) {
+@component('components/sourcecode')$languages->each(function($item, $key) {
 echo strtoupper($item) . '<br />';
 });@endcomponent
 <p>
@@ -24,7 +24,7 @@ echo strtoupper($item) . '<br />';
 @php
 echo "<h2>each() example : capitalize items and stop when java detected</h2>";
 @endphp
-@component('sourcecode')$languages->each(function($item, $key) {
+@component('components/sourcecode')$languages->each(function($item, $key) {
 if ($item == 'java')
 {
 return false;
