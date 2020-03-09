@@ -3,51 +3,67 @@
 @section('content')
 <div class="container">
     <div class="card">
-        <header class="card-header">
-            <h1 class="card-header-title">Laravel collections : méthode {{ $method->name }}()</h1>
+        <header class="card-header bg-info text-white">
+            <h3 class="card-header-title display-5 text-center">Laravel collections</h3>
+            <h1 class="card-header-title display-3 text-center">@lang('frontend.method') {{ $method->name }}()</h1>
         </header>
         <div class="card-body">
             <div class="content">
-                <h2>Description</h2>
+                <h2 class="display-4">Description</h2>
                 <p>{{ $method->description }}</p>
-                <h2>Collection(s) utilisée(s)</h2>
+
+
+                <hr>
+
+                <h2 class="display-4">@lang('frontend.examples')</h2>
+                <p>{!! trans_choice('frontend.x_examples_for_this_collection', $sources->count()) !!}</p>
+                {{-- Il y a {{ $sources->count() }} exemples pour cette collection</h2> --}}
+
+                @if ($sources->isNotEmpty())
+                @foreach ($sources as $source)
+                @php
+                // count collection used by this example
+                $countCollections = str_word_count($source->collections);
+                @endphp
+                <h3 class="bg-danger text-white p-4 mt-5 mb-3">@lang('frontend.example') #{{ $source->order }} :
+                    {{ $source->name }}</h3>
+                <h4 class="my-3"><strong>{{ trans_choice('frontend.used_collections', $countCollections) }}</strong>
+                </h4>
                 <div class="alert alert-success" role="alert">
-                    <strong>Cliquez sur chaque collection pour voir son code, ou cliquez sur le bouton 'Voir toutes les
-                        collections' pour toutes les ouvrir en une fois.</strong>
+                    <strong>@lang('frontend.collections_help')</strong>
                 </div>
                 <button class="btn btn-warning" type="button" data-toggle="collapse" data-target=".multi-collapse"
                     aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">
-                    <h4>Voir toutes les
-                        collections</h4>
+                    <h4>@lang('frontend.collections_see_all')</h4>
                 </button>
-                @foreach (Str::of($method->collections)->explode(',') as $item)
+                @foreach (Str::of($source->collections)->explode(',') as $item)
+
                 <div class="my-4">
                     @component("components/collection-$item")
                 </div>
                 @endcomponent
                 @endforeach
-                <hr>
-
-                <h2>Sources</h2>
-                @if ($sources->isNotEmpty())
-                @foreach ($sources as $source)
-                <h3>{{ $source->name }}</h3>
+                <h4 class="my-3"><strong>@lang('frontend.source_code')</strong></h4>
                 <pre>
-                    <h5>Code source</h5>
 <code class="language-php">
 {{ $source->comment }}
 </code>
-<h5>Résultat</h5>
+</pre>
+<h4 class="my-3"><strong>@lang('frontend.result')</h4>
+<pre>
+    <code class="language-php">
 @php
 eval($source->comment);
 @endphp
+    </code>
 
 
 </pre>
+
                 @endforeach
                 @else
                 <div class="alert alert-danger" role="alert">
-                    <strong>Il n'y a pas de code source pour cet méthode</strong>
+                    <strong>@lang('frontend.example_none')</strong>
                 </div>
 
                 @endif
