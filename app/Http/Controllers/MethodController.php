@@ -59,42 +59,24 @@ class MethodController extends Controller
         // Automatically determine slug from method name
         $request['slug'] = Str::slug($request->input('name'));
 
+        $methodId = Method::create($request->all());
 
-        // In no collection selected, send all data to model
-        if(empty($request->input('collections')))
-        {
-            $methodId = Method::create($request->all());
-        }
-
-        // if one or more collections selected, we need to transform it
-        // in string with comma separator
-        else
-        {
-            $collections = $request->input('collections');
-            $collections = implode(',', $collections);
-
-            $input = $request->except('collections');
-            //Assign the "mutated" collections value to $input
-            $input['collections'] = $collections;
-
-            $methodId = Method::create($input);
-        }
 
         if(!is_null($request->input('exemple-1')))
         {
-            dump('Source 1 enter');
+            $collections = $request->input('collections-1');
+            $collections = implode(',', $collections);
             $source1 = new Source();
             $source1->method_id = $methodId->id;
             $source1->name = $request->input('exemple-name-1');
             $source1->comment = $this->getLanguagesSource() . PHP_EOL . $request->input('exemple-1');
             $source1->order = 1;
+            $source1->collections = $collections;
             $source1->save();
         }
 
-        dump(!is_null($request->input('exemple-2')));
         if(!is_null($request->input('exemple-2')))
         {
-            dump('Source 2 enter');
             $source2 = new Source();
             $source2->method_id = $methodId->id;
             $source2->name = $request->input('exemple-name-2');
