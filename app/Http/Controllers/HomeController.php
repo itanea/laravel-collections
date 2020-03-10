@@ -14,7 +14,7 @@ class HomeController extends BaseController
 
     public function index()
     {
-        $datas = Method::All();
+        $datas = Method::orderBy('name')->get();
         return view('home.index')->with('datas', $datas);
     }
 }
