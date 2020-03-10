@@ -14,7 +14,7 @@ class MethodController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('show');
     }
 
     /**
@@ -44,7 +44,14 @@ class MethodController extends Controller
      */
     public function create()
     {
-        return view('methods.create');
+        $response = Gate::inspect('view-methods');
+
+        if ($response->allowed()) {
+            return view('methods.create');
+        } else{
+            $message = $response->message();
+            return view('error.admin', compact('message'));
+        }
     }
 
     /**
@@ -61,99 +68,30 @@ class MethodController extends Controller
 
         $methodId = Method::create($request->all());
 
-
-        if(!is_null($request->input('exemple-1')))
-        {
-            $collections = $request->input('collections-1');
-            $collections = implode(',', $collections);
-            $source1 = new Source();
-            $source1->method_id = $methodId->id;
-            $source1->name = $request->input('exemple-name-1');
-            $source1->comment = $this->getLanguagesSource() . PHP_EOL . $request->input('exemple-1');
-            $source1->order = 1;
-            $source1->collections = $collections;
-            $source1->save();
+        for ($i=0; $i < 9; $i++) {
+            if(!is_null($request->input("exemple-$i")))
+            {
+                $collections = $request->input("collections-$i");
+                if(!empty($collections)) {
+                    $collectionsInLine = implode(',', $collections);
+                } else {
+                    $collectionsInLine = '';
+                }
+                $source = new Source();
+                $source->method_id = $methodId->id;
+                $source->name = $request->input("exemple-name-$i");
+                if(!empty($collections)) {
+                    $source->comment = $this->getSources($collections) . PHP_EOL . $request->input("exemple-$i");
+                } else {
+                    $source->comment = $request->input("exemple-$i");
+                }
+                $source->order = $i;
+                $source->collections = $collectionsInLine;
+                $source->save();
+            }
+            # code...
         }
 
-        if(!is_null($request->input('exemple-2')))
-        {
-            $source2 = new Source();
-            $source2->method_id = $methodId->id;
-            $source2->name = $request->input('exemple-name-2');
-            $source2->comment = $request->input('exemple-2');
-            $source2->order = 2;
-            $source2->save();
-        }
-
-        if(!is_null($request->input('exemple-3')))
-        {
-            $source3 = new Source();
-            $source3->method_id = $methodId->id;
-            $source3->name = $request->input('exemple-name-3');
-            $source3->comment = $request->input('exemple-3');
-            $source3->order = 3;
-            $source3->save();
-        }
-
-        if(!is_null($request->input('exemple-4')))
-        {
-            $source1 = new Source();
-            $source1->method_id = $methodId->id;
-            $source1->name = $request->input('exemple-name-4');
-            $source1->comment = $request->input('exemple-4');
-            $source1->order = 4;
-            $source1->save();
-        }
-
-        if(!is_null($request->input('exemple-5')))
-        {
-            $source2 = new Source();
-            $source2->method_id = $methodId->id;
-            $source2->name = $request->input('exemple-name-5');
-            $source2->comment = $request->input('exemple-5');
-            $source2->order = 5;
-            $source2->save();
-        }
-
-        if(!is_null($request->input('exemple-6')))
-        {
-            $source3 = new Source();
-            $source3->method_id = $methodId->id;
-            $source3->name = $request->input('exemple-name-6');
-            $source3->comment = $request->input('exemple-6');
-            $source3->order = 6;
-            $source3->save();
-        }
-
-        if(!is_null($request->input('exemple-7')))
-        {
-            $source1 = new Source();
-            $source1->method_id = $methodId->id;
-            $source1->name = $request->input('exemple-name-7');
-            $source1->comment = $request->input('exemple-7');
-            $source1->order = 7;
-            $source1->save();
-        }
-
-        if(!is_null($request->input('exemple-8')))
-        {
-            $source2 = new Source();
-            $source2->method_id = $methodId->id;
-            $source2->name = $request->input('exemple-name-8');
-            $source2->comment = $request->input('exemple-8');
-            $source2->order = 8;
-            $source2->save();
-        }
-
-        if(!is_null($request->input('exemple-9')))
-        {
-            $source3 = new Source();
-            $source3->method_id = $methodId->id;
-            $source3->name = $request->input('exemple-name-9');
-            $source3->comment = $request->input('exemple-9');
-            $source3->order = 9;
-            $source3->save();
-        }
         return redirect()->route('methods.index')->with('info', 'La méthode a bien été créé');
     }
 
@@ -203,7 +141,20 @@ class MethodController extends Controller
         //
     }
 
-    private function getLanguagesSource ()
+    /**
+     *
+     */
+    public function getSources (Array $sources)
+    {
+        $result = '';
+        foreach ($sources as $key => $value) {
+            $functionName = 'get' . ucfirst($value) . 'Source';
+            $result .= $this->$functionName() . PHP_EOL;
+        }
+        return $result;
+    }
+
+    public function getLanguagesSource()
     {
         return '$languages = collect([
             "php",
@@ -215,5 +166,77 @@ class MethodController extends Controller
             "cobol",
             "basic"
             ]);';
+    }
+
+    public function getNumbersSource()
+    {
+        return '$numbers = collect([-2, 200.3, -7.8, 400.1]);';
+    }
+
+
+    public function getOneorzeroSource()
+    {
+        return '$oneorzero = collect([
+            true,
+            false
+        ]);';
+    }
+
+    public function getLevelSource()
+    {
+        return '$level = collect([
+            "expert",
+            "normal",
+            "normal",
+            "newbie",
+            "newbie",
+            "normal",
+            "newbie",
+            "expert"
+            ]
+        );';
+
+    }
+
+    public function getNestedSource()
+    {
+        return '$nested = collect([
+            ["name" => "Spaghetti à la carbonara", "level" => "Moyen", "price" => "Economique", "type" => "Pâtes"],
+            ["name" => "Loup entier grillé", "level" => "Chef", "price" => "Cher", "type" => "Poisson"],
+            ["name" => "Gnocchi au pesto", "level" => "Facile", "price" => "Economique", "type" => "Pâtes"],
+            ["name" => "Daurade vapeur et ses pommes de terre", "level" => "Moyen", "price" => "Moyen", "type" => "Poisson"],
+            ["name" => "Dame blanche", "level" => "Moyen", "price" => "Moyen", "type" => "Dessert"],
+            ["name" => "Banana Split", "level" => "Chef", "price" => "Cher", "type" => "Dessert"],
+            ["name" => "Coupe Colonel", "level" => "Facile", "price" => "Economique", "type" => "Dessert"],
+        ]);';
+    }
+
+    public function getImprovednestedSource()
+    {
+        return '$improvedNested = collect([
+            ["Spaghetti à la carbonara", "Moyen", 15.75, 5.5],
+            ["Loup entier grillé", "Chef", 30, 7],
+            ["Coupe Colonel", "Facile", 7.5, 12.5],
+        ]);';
+    }
+
+    public function getComplexeSource()
+    {
+        return '$complexe = collect(
+            [
+                ["name" => "php",
+                "python",
+                "javascript",
+                "go",
+                "c#",
+                "java",
+                "cobol",
+                "basic"],
+                [-2, 200.3, -7.8, 400.1],
+                ["ref" => "XZ42", "price" => 200.7, "tags" => ["red", "new"]],
+                "totalprice" => 422
+            ]
+        );';
+
     }
 }
