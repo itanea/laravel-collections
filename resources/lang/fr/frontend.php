@@ -3,6 +3,7 @@
 return [
     'collections_help' => "Cliquez sur chaque collection pour voir son code, ou cliquez sur le bouton 'Voir toutes les
      collections' pour toutes les ouvrir en une fois.",
+    'collections_none_help' => "Il n'y a pas de collections pour cette méthode",
     'collections_see_all' => 'Voir toutes les collections',
     'example' => 'Exemple',
     'example_none' => "Il n'y a pas encore d'exemple pour cette méthode, reviens plus tard ;-)",

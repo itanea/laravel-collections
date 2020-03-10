@@ -74,8 +74,10 @@
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        @if (Auth::user()->isAdmin())
                         <a class="dropdown-item" href="{{ route('methods.index') }}">Lister les méthodes</a>
                         <a class="dropdown-item" href="{{ route('methods.create') }}">Créer une méthode</a>
+                        @endif
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}

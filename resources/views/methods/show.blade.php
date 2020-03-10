@@ -10,7 +10,7 @@
         <div class="card-body">
             <div class="content">
                 <h2 class="display-4">Description</h2>
-                <p>{{ $method->description }}</p>
+                <p>{!! $method->description !!}</p>
 
 
                 <hr>
@@ -29,6 +29,7 @@
                     {{ $source->name }}</h3>
                 <h4 class="my-3"><strong>{{ trans_choice('frontend.used_collections', $countCollections) }}</strong>
                 </h4>
+                @if ($countCollections > 0)
                 <div class="alert alert-success" role="alert">
                     <strong>@lang('frontend.collections_help')</strong>
                 </div>
@@ -36,27 +37,31 @@
                     aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">
                     <h4>@lang('frontend.collections_see_all')</h4>
                 </button>
-                @foreach (Str::of($source->collections)->explode(',') as $item)
+                    @foreach (Str::of($source->collections)->explode(',') as $item)
 
-                <div class="my-4">
-                    @component("components/collection-$item")
+                    <div class="my-4">
+                        @component("components/collection-$item")
+                    </div>
+                    @endcomponent
+                    @endforeach
+                @else
+                <div class="alert alert-danger" role="alert">
+                    <strong>@lang('frontend.collections_none_help')</strong>
                 </div>
-                @endcomponent
-                @endforeach
+                @endif
                 <h4 class="my-3"><strong>@lang('frontend.source_code')</strong></h4>
                 <pre>
 <code class="language-php">
 {{ $source->comment }}
 </code>
 </pre>
-<h4 class="my-3"><strong>@lang('frontend.result')</h4>
-<pre>
+                <h4 class="my-3"><strong>@lang('frontend.result')</h4>
+                <pre>
     <code class="language-php">
 @php
-eval($source->comment);
+eval(trim($source->comment));
 @endphp
     </code>
-
 
 </pre>
 

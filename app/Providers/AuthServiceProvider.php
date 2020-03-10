@@ -32,5 +32,12 @@ class AuthServiceProvider extends ServiceProvider
                         ? Response::allow()
                         : Response::deny($message);
         });
+
+        Gate::define('create-methods', function ($user) {
+            $message = 'Vous devez être administrateur pour accéder à cette page.';
+            return $user->isAdmin()
+                        ? Response::allow()
+                        : Response::deny($message);
+        });
     }
 }

@@ -36,13 +36,13 @@
                     <label for="collections">Collections</label>
                 <select multiple class="form-control" name="collections[]" id="collections" size="7"
                     value="{{ old('collections') }}">
-                    <option value="complexe">Complexe</option>
-                    <option value="improvednested">Improved nested</option>
-                    <option value="languages">Languages</option>
-                    <option value="level">Level</option>
-                    <option value="nested">Nested</option>
-                    <option value="numbers">Numbers</option>
-                    <option value="oneorzero">One or Zero</option>
+                <option value="complexe">Complexe</option>
+                <option value="improvednested">Improved nested</option>
+                <option value="languages">Languages</option>
+                <option value="level">Level</option>
+                <option value="nested">Nested</option>
+                <option value="numbers">Numbers</option>
+                <option value="oneorzero">One or Zero</option>
                 </select>
         </div> --}}
         {{-- Code source #1 --}}
@@ -104,6 +104,20 @@
             <p class="invalid-feedback">{{ $message }}</p>
             @enderror
         </div>
+        <div class="form-group">
+            <label for="collections-2">Collections associées à la source</label>
+            {{-- Type name field as an array to collect collection items in an array --}}
+            <select multiple class="form-control" name="collections-2[]" id="collections-2" size="7"
+                value="{{ old('collections-2') }}">
+                <option value="complexe">Complexe</option>
+                <option value="improvednested">Improved nested</option>
+                <option value="languages">Languages</option>
+                <option value="level">Level</option>
+                <option value="nested">Nested</option>
+                <option value="numbers">Numbers</option>
+                <option value="oneorzero">One or Zero</option>
+            </select>
+        </div>
 
         {{-- Code source #3 --}}
         <div class="form-group">
@@ -126,6 +140,20 @@
             @error('exemple-3')
             <p class="invalid-feedback">{{ $message }}</p>
             @enderror
+        </div>
+        <div class="form-group">
+            <label for="collections-3">Collections associées à la source</label>
+            {{-- Type name field as an array to collect collection items in an array --}}
+            <select multiple class="form-control" name="collections-3[]" id="collections-3" size="7"
+                value="{{ old('collections-3') }}">
+                <option value="complexe">Complexe</option>
+                <option value="improvednested">Improved nested</option>
+                <option value="languages">Languages</option>
+                <option value="level">Level</option>
+                <option value="nested">Nested</option>
+                <option value="numbers">Numbers</option>
+                <option value="oneorzero">One or Zero</option>
+            </select>
         </div>
 
         {{-- collapse other source code forms --}}
@@ -161,6 +189,20 @@
                         <p class="invalid-feedback">{{ $message }}</p>
                         @enderror
                     </div>
+                    <div class="form-group">
+                        <label for="collections-4">Collections associées à la source</label>
+                        {{-- Type name field as an array to collect collection items in an array --}}
+                        <select multiple class="form-control" name="collections-4[]" id="collections-4" size="7"
+                            value="{{ old('collections-4') }}">
+                            <option value="complexe">Complexe</option>
+                            <option value="improvednested">Improved nested</option>
+                            <option value="languages">Languages</option>
+                            <option value="level">Level</option>
+                            <option value="nested">Nested</option>
+                            <option value="numbers">Numbers</option>
+                            <option value="oneorzero">One or Zero</option>
+                        </select>
+                    </div>
 
                     {{-- Code source #5 --}}
                     <div class="form-group">
@@ -186,6 +228,20 @@
                         @error('exemple-5')
                         <p class="invalid-feedback">{{ $message }}</p>
                         @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="collections-5">Collections associées à la source</label>
+                        {{-- Type name field as an array to collect collection items in an array --}}
+                        <select multiple class="form-control" name="collections-5[]" id="collections-5" size="7"
+                            value="{{ old('collections-5') }}">
+                            <option value="complexe">Complexe</option>
+                            <option value="improvednested">Improved nested</option>
+                            <option value="languages">Languages</option>
+                            <option value="level">Level</option>
+                            <option value="nested">Nested</option>
+                            <option value="numbers">Numbers</option>
+                            <option value="oneorzero">One or Zero</option>
+                        </select>
                     </div>
 
                     {{-- Code source #6 --}}
@@ -213,6 +269,20 @@
                         <p class="invalid-feedback">{{ $message }}</p>
                         @enderror
                     </div>
+                    <div class="form-group">
+                        <label for="collections-6">Collections associées à la source</label>
+                        {{-- Type name field as an array to collect collection items in an array --}}
+                        <select multiple class="form-control" name="collections-6[]" id="collections-6" size="7"
+                            value="{{ old('collections-6') }}">
+                            <option value="complexe">Complexe</option>
+                            <option value="improvednested">Improved nested</option>
+                            <option value="languages">Languages</option>
+                            <option value="level">Level</option>
+                            <option value="nested">Nested</option>
+                            <option value="numbers">Numbers</option>
+                            <option value="oneorzero">One or Zero</option>
+                        </select>
+                    </div>
 
                     {{-- Code source #7 --}}
                     <div class="form-group">
@@ -238,6 +308,20 @@
                         @error('exemple-7')
                         <p class="invalid-feedback">{{ $message }}</p>
                         @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="collections-7">Collections associées à la source</label>
+                        {{-- Type name field as an array to collect collection items in an array --}}
+                        <select multiple class="form-control" name="collections-7[]" id="collections-7" size="7"
+                            value="{{ old('collections-7') }}">
+                            <option value="complexe">Complexe</option>
+                            <option value="improvednested">Improved nested</option>
+                            <option value="languages">Languages</option>
+                            <option value="level">Level</option>
+                            <option value="nested">Nested</option>
+                            <option value="numbers">Numbers</option>
+                            <option value="oneorzero">One or Zero</option>
+                        </select>
                     </div>
 
                     {{-- Code source #8 --}}
@@ -265,6 +349,20 @@
                         <p class="invalid-feedback">{{ $message }}</p>
                         @enderror
                     </div>
+                    <div class="form-group">
+                        <label for="collections-8">Collections associées à la source</label>
+                        {{-- Type name field as an array to collect collection items in an array --}}
+                        <select multiple class="form-control" name="collections-8[]" id="collections-8" size="7"
+                            value="{{ old('collections-8') }}">
+                            <option value="complexe">Complexe</option>
+                            <option value="improvednested">Improved nested</option>
+                            <option value="languages">Languages</option>
+                            <option value="level">Level</option>
+                            <option value="nested">Nested</option>
+                            <option value="numbers">Numbers</option>
+                            <option value="oneorzero">One or Zero</option>
+                        </select>
+                    </div>
 
                     {{-- Code source #9 --}}
                     <div class="form-group">
@@ -290,6 +388,20 @@
                         @error('exemple-9')
                         <p class="invalid-feedback">{{ $message }}</p>
                         @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="collections-9">Collections associées à la source</label>
+                        {{-- Type name field as an array to collect collection items in an array --}}
+                        <select multiple class="form-control" name="collections-9[]" id="collections-9" size="7"
+                            value="{{ old('collections-9') }}">
+                            <option value="complexe">Complexe</option>
+                            <option value="improvednested">Improved nested</option>
+                            <option value="languages">Languages</option>
+                            <option value="level">Level</option>
+                            <option value="nested">Nested</option>
+                            <option value="numbers">Numbers</option>
+                            <option value="oneorzero">One or Zero</option>
+                        </select>
                     </div>
                 </div>
             </div>
