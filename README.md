@@ -12,9 +12,19 @@ The purpose of this mini project is to demonstrate all collections method's avai
 2. composer install
 3. cd laravel-collections
 4. mv .env.example .env
-5. php artisan key:generate
+5. set your database's credentials
+6. php artisan key:generate
+7. php artisan migrate
 
-6. Enjoy !! :D
+8. Enjoy !! :D
+
+
+## Release notes
+
+### 20200310 - v2.0
+
+- Add methods and sources managment by database
+- Improve frontend
 
 ## License
 
