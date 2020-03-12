@@ -21,6 +21,10 @@ The purpose of this mini project is to demonstrate all collections method's avai
 
 ## Release notes
 
+### 20200312 - v2.0.1
+
+- Test Telescope:prune scheduler
+
 ### 20200310 - v2.0
 
 - Add methods and sources managment by database
