@@ -26,7 +26,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
-        $schedule->command('telescope:prune')->timezone('Europe/Paris')->everyFiveMinutes();;
+        $schedule->command('telescope:prune')->timezone('Europe/Paris')->everyFiveMinutes();
 
     }
 
