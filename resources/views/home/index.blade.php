@@ -10,23 +10,30 @@
         <p class="lead">Ci-dessous, tu vas pouvoir découvrir une des {{ $datas->count()}} méthodes des collections
             Laravel. En tout, il y en a 118, le reste arrive vite ;-)</p>
     </div>
-</div>
-@foreach ($datas->chunk(3) as $chunk)
-<div class="row justify-content-center">
-    @foreach ($chunk as $data)
-    <div class="card mx-4 my-4 text-center" style="width: 18rem;border-color:red;">
-        <div class="card-header bg-white text-dark">
-            <h2>{{ $data->name }}</h2>
+    @foreach ($datas->chunk(3) as $chunk)
+    <div class="row justify-content-center">
+        @foreach ($chunk as $data)
+        <div class="card mx-4 my-4 text-center" style="width: 18rem;border-color:red;">
+            <div class="card-header bg-white text-dark">
+                <h2 class="my-0"><a href="/method/{{ $data->name }}">{{ $data->name }}</a></h2>
+                @if ($data->since)
+                <p class="my-0"><small>depuis Laravel <span
+                            class="badge badge-danger">v{{ $data->since }}</span></small>
+                </p>
+                @else
+                <p class="my-0"><small>
+                        <x-random-sentences /></small></p>
+                @endif
+            </div>
+            <div class="card-body bg-danger text-white">
+                <p class="card-text">
+                    {{ Str::limit($data->description, 80) }}
+                </p>
+                <a href="/method/{{ $data->name }}" class="btn btn-warning">En savoir plus sur <span
+                        class="badge badge-dark"><strong>{{ $data->name }}</strong></span></a>
+            </div>
         </div>
-        <div class="card-body bg-danger text-white">
-            <p class="card-text">
-                {{ Str::limit($data->description, 80) }}
-            </p>
-            <a href="/method/{{ $data->name }}" class="btn btn-warning">En savoir plus sur <span
-                    class="badge badge-dark"><strong>{{ $data->name }}</strong></span></a>
-        </div>
+        @endforeach
     </div>
     @endforeach
-</div>
-@endforeach
-@endsection
+    @endsection
