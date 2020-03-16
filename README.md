@@ -21,6 +21,13 @@ The purpose of this mini project is to demonstrate all collections method's avai
 
 ## Release notes
 
+### 20200316 - v2.0.2
+
+- Add 'since'fields to know from wich laravel's version the method exists
+- Add some randomly sentences to said something when the since field is empty
+- update composer requirements
+
+
 ### 20200312 - v2.0.1
 
 - Test Telescope:prune scheduler
