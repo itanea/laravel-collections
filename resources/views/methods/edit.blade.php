@@ -78,7 +78,7 @@
                     <label for="exemple-{{ $loop->iteration }}">Code source #{{ $loop->iteration }}</label>
                     <textarea rows="4" name="exemple-{{ $loop->iteration }}" id="exemple-{{ $loop->iteration }}"
                         class="form-control @error('exemple-{{ $loop->iteration }}') is-invalid @enderror"
-                        placeholder="Proposez un exemple de code" aria-describedby="helpId" value="">{{ $source->comment }}
+                        placeholder="Proposez un exemple de code" aria-describedby="helpId" value="">{{ $source->code }}
             </textarea>
 
 

@@ -37,13 +37,13 @@
                     aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">
                     <h4>@lang('frontend.collections_see_all')</h4>
                 </button>
-                    @foreach (Str::of($source->collections)->explode(',') as $item)
+                @foreach (Str::of($source->collections)->explode(',') as $item)
 
-                    <div class="my-4">
-                        @component("components/collection-$item")
-                    </div>
-                    @endcomponent
-                    @endforeach
+                <div class="my-4">
+                    @component("components/collection-$item")
+                </div>
+                @endcomponent
+                @endforeach
                 @else
                 <div class="alert alert-danger" role="alert">
                     <strong>@lang('frontend.collections_none_help')</strong>
@@ -52,14 +52,15 @@
                 <h4 class="my-3"><strong>@lang('frontend.source_code')</strong></h4>
                 <pre>
 <code class="language-php">
-{{ $source->comment }}
+{{ $source->codeprepend }}
+{{ $source->code }}
 </code>
 </pre>
                 <h4 class="my-3"><strong>@lang('frontend.result')</h4>
                 <pre>
     <code class="language-php">
 @php
-eval(trim($source->comment));
+eval(trim($source->codeprepend . $source->code));
 @endphp
     </code>
 

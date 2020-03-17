@@ -81,11 +81,9 @@ class MethodController extends Controller
                 $source->method_id = $methodId->id;
                 $source->name = $request->input("exemple-name-$i");
                 if(!empty($collections)) {
-                    //$source->comment = $this->getSources($collections) . PHP_EOL . $request->input("exemple-$i");
-                    $source->comment = $request->input("exemple-$i");
-                } else {
-                    $source->comment = $request->input("exemple-$i");
+                    $source->codeprepend = $this->getSources($collections);
                 }
+                $source->code = $request->input("exemple-$i");
                 $source->order = $i;
                 $source->collections = $collectionsInLine;
                 $source->save();
@@ -150,10 +148,9 @@ class MethodController extends Controller
                 ])->first();
                 $source->name = $request->input("exemple-name-$i");
                 if(!empty($collections)) {
-                    $source->comment = $this->getSources($collections) . PHP_EOL . $request->input("exemple-$i");
-                } else {
-                    $source->comment = $request->input("exemple-$i");
+                    $source->codeprepend = $this->getSources($collections);
                 }
+                $source->code = $request->input("exemple-$i");
                 $source->order = $i;
                 $source->collections = $collectionsInLine;
                 $source->save();
