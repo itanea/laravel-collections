@@ -81,10 +81,9 @@ class MethodController extends Controller
                 $source->method_id = $methodId->id;
                 $source->name = $request->input("exemple-name-$i");
                 if(!empty($collections)) {
-                    $source->comment = $this->getSources($collections) . PHP_EOL . $request->input("exemple-$i");
-                } else {
-                    $source->comment = $request->input("exemple-$i");
+                    $source->codeprepend = $this->getSources($collections);
                 }
+                $source->code = $request->input("exemple-$i");
                 $source->order = $i;
                 $source->collections = $collectionsInLine;
                 $source->save();
@@ -113,9 +112,10 @@ class MethodController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Method $method)
     {
-        //
+        $sources = $method->sources;
+        return view('methods.edit', compact('method'));
     }
 
     /**
@@ -127,7 +127,38 @@ class MethodController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Automatically determine slug from method name
+        //$request['slug'] = Str::slug($request->input('name'));
+        $method = Method::find($id);
+        $method->update($request->all());
+        //$method->sources()->sync
+
+        for ($i=1; $i < 10; $i++) {
+            if(!is_null($request->input("exemple-$i")))
+            {
+                $collections = $request->input("collections-$i");
+                if(!empty($collections)) {
+                    $collectionsInLine = implode(',', $collections);
+                } else {
+                    $collectionsInLine = '';
+                }
+                $source = Source::where([
+                    ['method_id', '=', $id],
+                    ['order', '=', $i],
+                ])->first();
+                $source->name = $request->input("exemple-name-$i");
+                if(!empty($collections)) {
+                    $source->codeprepend = $this->getSources($collections);
+                }
+                $source->code = $request->input("exemple-$i");
+                $source->order = $i;
+                $source->collections = $collectionsInLine;
+                $source->save();
+            }
+
+        }
+        return redirect()->route('methods.index')->with('info', 'La méthode a bien été mise à jour');
+
     }
 
     /**

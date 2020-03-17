@@ -32,10 +32,10 @@
                         <td>{{ $method->id }}</td>
                         <td><strong>{{ $method->name }}</strong></td>
                         <td><a class="btn btn-primary" href="{{ route('methods.show', $method->slug) }}">Voir</a></td>
-                        <td><a class="btn btn-warning" href="{{ route('methods.edit', $method->slug) }}">Modifier</a>
+                        <td><a class="btn btn-warning" href="{{ route('methods.edit', $method->id) }}">Modifier</a>
                         </td>
                         <td>
-                            <form action="{{ route('methods.destroy', $method->slug) }}" method="post">
+                            <form action="{{ route('methods.destroy', $method->id) }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger" type="submit">Supprimer</button>

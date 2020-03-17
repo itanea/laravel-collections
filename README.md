@@ -21,6 +21,16 @@ The purpose of this mini project is to demonstrate all collections method's avai
 
 ## Release notes
 
+
+### 20200317 - v2.0.4
+
+- improve update method by adding 'codeprepend' column and renaming 'comment' column to 'code'
+
+### 20200317 - v2.0.3
+
+- Add update functionnality
+
+
 ### 20200316 - v2.0.2
 
 - Add 'since'fields to know from wich laravel's version the method exists
