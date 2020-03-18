@@ -14,6 +14,7 @@ class MethodController extends Controller
 {
     public function __construct()
     {
+        // All function need authebticated user except for 'show'
         $this->middleware('auth')->except('show');
     }
 

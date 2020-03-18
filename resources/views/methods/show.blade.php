@@ -2,6 +2,14 @@
 
 @section('content')
 <div class="container">
+    <div class="m-4">
+        @auth
+        @if(Auth::user()->isAdmin())
+        <a name="" id="" class="btn btn-primary" href="{{ route('methods.edit', $method->id) }}" role="button">Modifier
+            cette méthode</a>
+        @endif
+        @endauth
+    </div>
     <div class="card">
         <header class="card-header bg-info text-white">
             <h3 class="card-header-title display-5 text-center">Laravel collections</h3>
