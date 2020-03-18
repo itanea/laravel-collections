@@ -2,6 +2,14 @@
 
 @section('content')
 <div class="container">
+    <div class="m-4">
+        @auth
+        @if(Auth::user()->isAdmin())
+        <a name="" id="" class="btn btn-primary" href="{{ route('methods.edit', $method->id) }}" role="button">Modifier
+            cette méthode</a>
+        @endif
+        @endauth
+    </div>
     <div class="card">
         <header class="card-header bg-info text-white">
             <h3 class="card-header-title display-5 text-center">Laravel collections</h3>
@@ -9,13 +17,25 @@
         </header>
         <div class="card-body">
             <div class="content">
-                <h2 class="display-4">Description</h2>
-                <p>{!! $method->description !!}</p>
+                <h2 class="display-4 text-center">Quand est apparue cette méthode ?</h2>
+                @if ($method->since)
+                <p class="py-4 text-center bg-warning">depuis Laravel <span
+                        class="badge badge-danger">v{{ $method->since }}</span>
+                </p>
+                @else
+                <p class="py-4 text-center bg-warning">
+                    <x-random-sentences />
+                </p>
+                @endif
+                <h2 class="display-4 text-center">Description</h2>
+                <div class="alert alert-primary" role="alert">
+                    <strong>{!! $method->description !!}</strong>
+                </div>
 
 
                 <hr>
 
-                <h2 class="display-4">@lang('frontend.examples')</h2>
+                <h2 class="display-4 text-center">@lang('frontend.examples')</h2>
                 <p>{!! trans_choice('frontend.x_examples_for_this_collection', $sources->count()) !!}</p>
                 {{-- Il y a {{ $sources->count() }} exemples pour cette collection</h2> --}}
 

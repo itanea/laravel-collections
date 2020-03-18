@@ -21,6 +21,12 @@ The purpose of this mini project is to demonstrate all collections method's avai
 
 ## Release notes
 
+### 20200318 - v2.0.5
+
+- Add edit link for every method on frontend for admin user only
+- Add on frontend the birthdate (in laravel version term) of the method.
+- Improve design a little on show page.
+
 
 ### 20200317 - v2.0.4
 
