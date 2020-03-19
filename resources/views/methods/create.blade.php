@@ -66,8 +66,7 @@
                     <textarea name="exemple-1" id="exemple-1"
                         class="form-control @error('exemple-1') is-invalid @enderror"
                         placeholder="Proposez un exemple de code" aria-describedby="helpId"
-                        value="{{ old('exemple-1') }}">
-                    </textarea>
+                        value="{{ old('exemple-1') }}"></textarea>
                     <small id="helpId" class="text-muted">Donner un exemple de code pour illustrer la méthode en
                         cours</small>
                     @error('exemple-1')
@@ -105,8 +104,7 @@
                     <textarea name="exemple-2" id="exemple-2"
                         class="form-control @error('exemple-2') is-invalid @enderror"
                         placeholder="Proposez un exemple de code" aria-describedby="helpId"
-                        value="{{ old('exemple-2') }}">
-                    </textarea>
+                        value="{{ old('exemple-2') }}"></textarea>
                     <small id="helpId" class="text-muted">Donner un exemple de code pour illustrer la méthode en
                         cours</small>
                     @error('exemple-2')
@@ -144,8 +142,7 @@
                     <textarea name="exemple-3" id="exemple-3"
                         class="form-control @error('exemple-3') is-invalid @enderror"
                         placeholder="Proposez un exemple de code" aria-describedby="helpId"
-                        value="{{ old('exemple-3') }}">
-                    </textarea>
+                        value="{{ old('exemple-3') }}"></textarea>
                     <small id="helpId" class="text-muted">Donner un exemple de code pour illustrer la méthode en
                         cours</small>
                     @error('exemple-3')
@@ -191,8 +188,7 @@
                                 <textarea name="exemple-4" id="exemple-4"
                                     class="form-control @error('exemple-4') is-invalid @enderror"
                                     placeholder="Proposez un exemple de code" aria-describedby="helpId"
-                                    value="{{ old('exemple-4') }}">
-                                </textarea>
+                                    value="{{ old('exemple-4') }}"></textarea>
                                 <small id="helpId" class="text-muted">Donner un exemple de code pour illustrer la
                                     méthode en
                                     cours</small>
@@ -231,8 +227,7 @@
                                 <textarea name="exemple-5" id="exemple-5"
                                     class="form-control @error('exemple-5') is-invalid @enderror"
                                     placeholder="Proposez un exemple de code" aria-describedby="helpId"
-                                    value="{{ old('exemple-5') }}">
-                                </textarea>
+                                    value="{{ old('exemple-5') }}"></textarea>
                                 <small id="helpId" class="text-muted">Donner un exemple de code pour illustrer la
                                     méthode en
                                     cours</small>
@@ -271,8 +266,7 @@
                                 <textarea name="exemple-6" id="exemple-6"
                                     class="form-control @error('exemple-6') is-invalid @enderror"
                                     placeholder="Proposez un exemple de code" aria-describedby="helpId"
-                                    value="{{ old('exemple-6') }}">
-                                </textarea>
+                                    value="{{ old('exemple-6') }}"></textarea>
                                 <small id="helpId" class="text-muted">Donner un exemple de code pour illustrer la
                                     méthode en
                                     cours</small>
@@ -311,8 +305,7 @@
                                 <textarea name="exemple-7" id="exemple-7"
                                     class="form-control @error('exemple-7') is-invalid @enderror"
                                     placeholder="Proposez un exemple de code" aria-describedby="helpId"
-                                    value="{{ old('exemple-7') }}">
-                                </textarea>
+                                    value="{{ old('exemple-7') }}"></textarea>
                                 <small id="helpId" class="text-muted">Donner un exemple de code pour illustrer la
                                     méthode en
                                     cours</small>
@@ -351,8 +344,7 @@
                                 <textarea name="exemple-8" id="exemple-8"
                                     class="form-control @error('exemple-8') is-invalid @enderror"
                                     placeholder="Proposez un exemple de code" aria-describedby="helpId"
-                                    value="{{ old('exemple-8') }}">
-                                </textarea>
+                                    value="{{ old('exemple-8') }}"></textarea>
                                 <small id="helpId" class="text-muted">Donner un exemple de code pour illustrer la
                                     méthode en
                                     cours</small>
@@ -391,8 +383,7 @@
                                 <textarea name="exemple-9" id="exemple-9"
                                     class="form-control @error('exemple-9') is-invalid @enderror"
                                     placeholder="Proposez un exemple de code" aria-describedby="helpId"
-                                    value="{{ old('exemple-9') }}">
-                                </textarea>
+                                    value="{{ old('exemple-9') }}"></textarea>
                                 <small id="helpId" class="text-muted">Donner un exemple de code pour illustrer la
                                     méthode en
                                     cours</small>
