@@ -114,6 +114,44 @@
                     </select>
                 </div>
                 @endforeach
+                {{-- Code source #x --}}
+                <div class="form-group">
+                    <label for="exemple-name-{{ $countSources }}">Titre du code source #{{ $countSources }}</label>
+                    <input type="text" name="exemple-name-{{ $countSources }}" id="exemple-name-{{ $countSources }}"
+                        class="form-control @error('exemple-name-{{ $countSources }}') is-invalid @enderror"
+                        placeholder="" aria-describedby="helpId" value="{{ old('exemple-name-$countSources') }}">
+                    <small id="helpId" class="text-muted">Décrivez le titre du code source</small>
+                    @error('exemple-name-{{ $countSources }}')
+                    <p class="invalid-feedback">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="exemple-{{ $countSources }}">Code source #{{ $countSources }}</label>
+                    <textarea name="exemple-{{ $countSources }}" id="exemple-{{ $countSources }}"
+                        class="form-control @error('exemple-{{ $countSources }}') is-invalid @enderror"
+                        placeholder="Proposez un exemple de code" aria-describedby="helpId"
+                        value="{{ old('exemple-$countSources') }}"></textarea>
+                    <small id="helpId" class="text-muted">Donner un exemple de code pour illustrer la
+                        méthode en
+                        cours</small>
+                    @error('exemple-{{ $countSources }}')
+                    <p class="invalid-feedback">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="collections-{{ $countSources }}">Collections associées à la source</label>
+                    {{-- Type name field as an array to collect collection items in an array --}}
+                    <select multiple class="form-control" name="collections-{{ $countSources }}[]"
+                        id="collections-{{ $countSources }}" size="7" value="{{ old('collections-$countSources') }}">
+                        <option value="complexe">Complexe</option>
+                        <option value="improvednested">Improved nested</option>
+                        <option value="languages">Languages</option>
+                        <option value="level">Level</option>
+                        <option value="nested">Nested</option>
+                        <option value="numbers">Numbers</option>
+                        <option value="oneorzero">One or Zero</option>
+                    </select>
+                </div>
 
 
 

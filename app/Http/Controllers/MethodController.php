@@ -116,7 +116,8 @@ class MethodController extends Controller
     public function edit(Method $method)
     {
         $sources = $method->sources;
-        return view('methods.edit', compact('method'));
+        $countSources = count($sources) +1;
+        return view('methods.edit', compact('method', 'countSources'));
     }
 
     /**
@@ -147,14 +148,30 @@ class MethodController extends Controller
                     ['method_id', '=', $id],
                     ['order', '=', $i],
                 ])->first();
-                $source->name = $request->input("exemple-name-$i");
-                if(!empty($collections)) {
-                    $source->codeprepend = $this->getSources($collections);
+                if($source === null)
+                {
+                    $source = New Source();
+                    $source->method_id = $method->id;
+                    $source->name = $request->input("exemple-name-$i");
+                    if(!empty($collections)) {
+                        $source->codeprepend = $this->getSources($collections);
+                    }
+                    $source->code = $request->input("exemple-$i");
+                    $source->order = $i;
+                    $source->collections = $collectionsInLine;
+                    $source->save();
                 }
-                $source->code = $request->input("exemple-$i");
-                $source->order = $i;
-                $source->collections = $collectionsInLine;
-                $source->save();
+                else
+                {
+                    $source->name = $request->input("exemple-name-$i");
+                    if(!empty($collections)) {
+                        $source->codeprepend = $this->getSources($collections);
+                    }
+                    $source->code = $request->input("exemple-$i");
+                    $source->order = $i;
+                    $source->collections = $collectionsInLine;
+                    $source->save();
+                }
             }
 
         }
