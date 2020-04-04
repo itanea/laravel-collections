@@ -17,12 +17,10 @@
             <div class="card-header bg-white text-dark">
                 <h2 class="my-0"><a href="/method/{{ $data->name }}">{{ $data->name }}</a></h2>
                 @if ($data->since)
-                <p class="my-0"><small>depuis Laravel <span
-                            class="badge badge-danger">v{{ $data->since }}</span></small>
-                </p>
-                @else
-                <p class="my-0"><small>
-                        <x-random-sentences /></small></p>
+                <p class="my-0"><small>depuis Laravel @if(strpos($data->since, '<')===false)<span
+                            class="badge badge-danger">v{{ $data->since }}</span>@else<span class="badge badge-danger">
+                                < v{{ substr($data->since,1) }}</span>@endif </small> </p> @else <p class="my-0"><small>
+                                        <x-random-sentences /></small></p>
                 @endif
             </div>
             <div class="card-body bg-danger text-white">

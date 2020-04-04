@@ -21,6 +21,10 @@ The purpose of this mini project is to demonstrate all collections method's avai
 
 ## Release notes
 
+### 20200404 - v2.0.7
+
+- Use before tag '<' on methods listing too
+
 ### 20200404 - v2.0.6
 
 - Add componenents for random sentences when since if not fullfilled
