@@ -19,12 +19,14 @@
             <div class="content">
                 <h2 class="display-4 text-center">Quand est apparue cette méthode ?</h2>
                 @if ($method->since)
-                <p class="py-4 text-center bg-warning">depuis Laravel <span
-                        class="badge badge-danger">v{{ $method->since }}</span>
-                </p>
-                @else
-                <p class="py-4 text-center bg-warning">
-                    <x-random-sentences />
+                <p class="py-4 text-center bg-warning">depuis Laravel
+                    @if(strpos($method->since, '<')===false) <span class="badge badge-danger">
+                        v{{ $method->since }}</span>
+                        @else
+                        <span class="badge badge-danger">
+                            < v{{ substr($method->since,1) }}</span> @endif </p> @else <p
+                                class="py-4 text-center bg-warning">
+                                <x-random-sentences />
                 </p>
                 @endif
                 <h2 class="display-4 text-center">Description</h2>
