@@ -21,6 +21,11 @@ The purpose of this mini project is to demonstrate all collections method's avai
 
 ## Release notes
 
+### 20200404 - v2.0.6
+
+- Add componenents for random sentences when since if not fullfilled
+- Add availabity to declare a method since like this '<5.2'
+
 ### 20200318 - v2.0.5
 
 - Add edit link for every method on frontend for admin user only
