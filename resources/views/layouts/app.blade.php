@@ -33,6 +33,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    <script src="https://kit.fontawesome.com/aba225057f.js" crossorigin="anonymous"></script>
+
+    {{-- Yoeunes Notify integration --}}
+    @notify_css
+
     <title>Laravel Collections Demo</title>
 </head>
 
@@ -109,5 +115,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/plugins/autoloader/prism-autoloader.min.js">
     </script>
 </body>
+@notify_js
+@notify_render
 
 </html>
