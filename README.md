@@ -21,6 +21,13 @@ The purpose of this mini project is to demonstrate all collections method's avai
 
 ## Release notes
 
+### 20200524 - v2.0.8
+
+- Add newsletter registration 
+- Add notfication when user registers to newsletter
+- Send mail to the user
+- Note : run php artisan migrate & update .env file with COLLECTIONS_COUNT value
+
 ### 20200404 - v2.0.7
 
 - Use before tag '<' on methods listing too
