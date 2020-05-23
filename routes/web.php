@@ -52,3 +52,5 @@ Route::resource('/admin/methods', 'MethodController')->except([
 
 Route::get('/admin/methods/{method:slug}', 'MethodController@show')->name('methods.show');
 Route::get('/method/{method:slug}', 'MethodController@show')->name('methods.show');
+
+Route::post('/newsletter', 'NewsletterController@store')->name('newsletter.store');
